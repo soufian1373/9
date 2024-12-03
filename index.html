@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidéo Responsive</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            max-width: 100vw;
+            max-height: 100vh;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <video id="video" autoplay muted playsinline>
+        <source src="site9.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la lecture des vidéos HTML5.
+    </video>
+    <script>
+        // Sélection de la vidéo
+        const video = document.getElementById('video');
+
+        // Quand la vidéo est terminée, reste sur la dernière image
+        video.addEventListener('ended', () => {
+            video.pause(); // Met la vidéo en pause
+            video.currentTime = video.duration; // Va à la dernière image
+        });
+    </script>
+</body>
+</html>
